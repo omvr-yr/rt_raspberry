@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>Unlock</title>
+
+        <meta name="description" content="DESCRIPTION HERE">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+        <!-- Favicons (just the basics for now, check out http://realfavicongenerator.net/ for all available) -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png') }}" >
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}" sizes="32x32">
+        <!-- Web fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <!-- Page Container -->
+        <!--
+            Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf'
+        -->
+        <div id="page-container" class="interstellar-sf">
+            <!-- Main Content -->
+            <main id="page-main">
+                <!-- Columns -->
+                <div class="row">
+                    <!-- Animated Circles Column -->
+                    <div class="col-lg-6 col-lg-push-3 overflow-hidden push-20">
+                        <div div class="circles push-50">
+                            <div id="containor">
+                                <div id="y" class="x numberS animated bounceIn" onclick="check()"></div>
+                                <i id="x" class="fa-solid fa-delete-left numberS animated bounceIn"></i>
+                                <div id="cont"></div>
+                                <div id="input">                                    
+                                    <input type="textfield" class="field animated bounceInUp" id="field" maxlength="3"/>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Animated Circles Column -->
+                </div>
+                <!-- END Columns -->
+            </main>
+            <!-- END Main Content -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/core/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.appear.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.countTo.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.easypiechart.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/circle-progress.min.js') }}" type="module"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="https://kit.fontawesome.com/e1103b874c.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Page JS Code -->
+        <script>
+        for(var count =1; count<11;count++){
+            var text = document.createTextNode(count);
+            var conta = document.getElementById("cont");
+            var newNum = document.createElement("div");
+            var br = document.createElement("br");
+            if(count==4 || count==7 || count==10){
+                conta.appendChild(br)
+            }
+            newNum.classList.add("number");
+            newNum.classList.add("animated");
+            newNum.classList.add("bounceIn");
+            newNum.id = "yo"+count
+            if(count==10){
+                text = document.createTextNode("0");
+            }
+            newNum.appendChild(text);
+            conta.appendChild(newNum);
+        }
+        var x = document.getElementById("x");
+        x.addEventListener("click", function(){
+        document.getElementById("field").value = "";
+        document.getElementById("field").classList.remove("bounceInUp");
+        document.getElementById("field").classList.add("fadeOutUp");
+        document.getElementById("field").classList.remove("fadeOutUp");
+        document.getElementById("field").classList.add("bounceInUp");
+
+        counter=0;
+        });
+
+        var field = document.getElementById("field").innerHTML;
+        var nums = document.getElementsByClassName("number");
+
+        //making buttons add their values but not do more then 4 digits with counter
+        //function just to get rid of this mess
+        var counter =0
+        func()
+
+        function func(){
+        nums[0].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "1";
+                counter= counter+1
+            }
+            else{check()}
+        };
+        nums[1].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "2";
+                counter= counter+1
+            }
+            else{check()}
+        };
+
+        nums[2].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "3";
+                counter= counter+1
+            }
+            else{check()}
+        };
+
+        nums[3].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "4";
+                counter= counter+1
+            }
+            else{check()}
+        };
+
+        nums[4].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "5";
+                counter= counter+1
+            }
+            else{check()}
+        };
+
+        nums[5].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "6";
+                counter= counter+1
+            }
+            else{check()}
+        };
+        nums[6].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "7";
+                counter= counter+1
+            }
+            else{check()}
+        };
+
+        nums[7].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "8";
+                counter= counter+1
+            }
+            else{check()}
+        };
+        nums[8].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "9";
+                counter= counter+1
+            }
+            else{check()}
+        };
+
+        nums[9].onclick = function(){
+            if(counter<4){
+                document.querySelector("input").value = document.querySelector("input").value + "0";
+                counter= counter+1
+            }
+            else{check()}
+        };
+        }
+        document.querySelector("div").classList.add("animated")
+        var animation="bounce"
+        function check(){
+        if(document.querySelector("input").value=="2023"){
+            window.location.href = 'open_system';
+        }else{
+            document.querySelector("h2").innerHTML = "WRONG CODE";
+            document.getElementById("field").value = "";
+            if(animation=="bounce"){
+                document.querySelector("div").classList.remove("shake");
+                document.querySelector("div").classList.add("bounce");
+                animation="shake";
+            }else{
+                document.querySelector("div").classList.remove("bounce");
+                document.querySelector("div").classList.add("shake");
+                animation="bounce";
+            }
+            counter=0
+        }
+        }
+
+        // GO TO door-closed.html IF NO INTERACTION
+        // Satrt inactivity minuteur at load page
+        var inactivityTimer = setTimeout(redirectToDoorClosed, 12000); // 12 secondes
+
+        // Redirect to door-closed.html
+        // function redirectToDoorClosed() {
+        //     console.log("Redirecting to door-closed.html");
+        //     window.location.href = '/';
+        // }
+
+        // Reset miniteur at each interaction
+        document.addEventListener('click', resetInactivityTimer);
+        document.addEventListener('keydown', resetInactivityTimer);
+
+        // function resetInactivityTimer() {
+        //     clearTimeout(inactivityTimer);
+        //     inactivityTimer = setTimeout(redirectToDoorClosed, 24000); // 24 seconds
+        // }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>Parameters</title>
+
+        <meta name="description" content="DESCRIPTION HERE">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+        <!-- Favicons (just the basics for now, check out http://realfavicongenerator.net/ for all available) -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png') }}" >
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}" sizes="32x32">
+        <!-- Web fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <!-- Page Container -->
+        <!--
+            Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf'
+        -->
+        <div id="page-container" class="interstellar-sf">
+            <!-- Header -->
+            <header id="page-header">
+                <div class="menu">
+                    <ul>
+                        <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="{{ url_for('parameters') }}"><i class="fas fa-sliders-h"></i> Parameters</a></li>
+                        <li><a href="{{ url_for('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li><a href="{{ url_for('help') }}"><i class="fas fa-question-circle"></i> Help</a></li>
+                        <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About</a></li>
+                    </ul>
+                </div>
+                <div class="menu-toggle">☰</div>
+                <div class="h3 text-right pull-right hidden-xs">
+                    <div id="datetime" class="text-crystal font-w300"></div>
+                    <div id="time" class="text-crystal font-w300"></div>
+                </div>
+                <div class="logo">
+                    <span class="text-crystal"><img class="rotate-img" src="{{ url_for('static', filename='img/logo.png') }}" width="100" height="100"></span>
+                </div>
+            </header>
+            <!-- END Header -->
+            <!-- Main Content -->
+            <main id="page-main">
+                <!-- Columns -->
+                <div class="row">
+                    <!-- Animated Circles Column -->
+                    <div class="about col-lg-6 col-lg-push-3 overflow-hidden push-20">
+                        <h2>Parameters</h2>
+                        <p>Welcome to the Parameters page of the Hydrogen Generator Control Panel. Here, you can customize and monitor various parameters to ensure optimal performance and efficiency of your hydrogen generation system. Below are key parameters you can manage:</p>
+                        <h3>1. Flow Rate</h3>
+                        <p>Adjust the hydrogen flow rate to meet your specific application requirements. Whether you need a steady flow or periodic bursts, fine-tune the flow rate for optimal hydrogen production.</p>
+                        <h3>2. Pressure Control</h3>
+                        <p>Monitor and control the pressure of the hydrogen output. Set pressure levels within the specified range to ensure safe and effective utilization of the generated hydrogen gas.</p>
+                        <h3>3. Temperature Settings</h3>
+                        <p>Manage the temperature settings of the hydrogen generator. Optimal temperature control is crucial for efficient electrolysis and overall system performance. Ensure that the temperature remains within the recommended range.</p>
+                        <h3>4. Electrolyte Concentration</h3>
+                        <p>Adjust the concentration of the electrolyte solution used in the hydrogen generation process. Fine-tune the electrolyte levels to optimize electrolysis efficiency and extend the life of the system.</p>
+                        <h3>5. System Diagnostics</h3>
+                        <p>Access real-time diagnostics and status indicators for the hydrogen generator. Stay informed about system health, and address any potential issues promptly to maintain continuous and reliable hydrogen production.</p>
+                        <h3>6. Security and Safety Settings</h3>
+                        <p>Configure security and safety settings to ensure the safe operation of the hydrogen generator. Set up alarms and automatic shutdown protocols to respond to critical situations and prevent potential hazards.</p>
+                        <h3>7. Remote Monitoring</h3>
+                        <p>Explore options for remote monitoring of the hydrogen generator parameters. Set up a secure connection to monitor and adjust parameters from a remote location for enhanced convenience and control.</p>
+                        <p>Remember to save your parameter configurations after making adjustments. Regularly check and update these parameters to maintain optimal performance and ensure the longevity of your hydrogen generator system.</p>
+                    
+                    </div>
+                    <!-- END Animated Circles Column -->
+                </div>
+                <!-- END Columns -->
+            </main>
+            <!-- END Main Content -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/core/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.appear.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.countTo.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.easypiechart.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/circle-progress.min.js') }}" type="module"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="https://kit.fontawesome.com/e1103b874c.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Page JS Code -->
+        <script>
+            jQuery(function(){
+                // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+                Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+            });
+            function updateDateTime() {
+                const currentDate = new Date();
+                const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const optionsTime = { hour: '2-digit', minute: '2-digit', hour12: false };
+
+                const formattedDate = currentDate.toLocaleDateString('fr-FR', optionsDate);
+                const formattedTime = currentDate.toLocaleTimeString('fr-FR', optionsTime);
+
+                document.getElementById('datetime').textContent = formattedDate;
+                document.getElementById('time').textContent = formattedTime;
+                // document.getElementById('temperature').textContent = "21 °F";
+            }
+            // Menu toggle
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.menu').classList.toggle('active');
+            });
+            $(document).ready(function() {
+                var menuToggle = $('.menu-toggle');
+                var menu = $('.menu');
+        
+                $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) { // 50 est la distance de défilement à partir du haut où vous voulez que l'effet se produise
+                    menuToggle.addClass('hidden');
+                    menu.addClass('hidden');
+                } else {
+                    menuToggle.removeClass('hidden');
+                    menu.removeClass('hidden');
+                }
+                });
+            });
+            // Update date and time every second
+            setInterval(updateDateTime, 1000);
+
+            // Initial call to avoid a one-second delay before the first update
+            updateDateTime();
+
+            // Update date and time every second
+            setInterval(updateDateTime, 1000);
+
+            // Initial call to avoid a one-second delay before the first update
+            updateDateTime();
+
+            // Update date and time every second
+            setInterval(updateDateTime, 1000);
+
+            // Initial call to avoid a one-second delay before the first update
+            updateDateTime();
+        </script>
+    </body>
+</html>

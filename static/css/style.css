@@ -1,0 +1,933 @@
+/*!
+* Company - v1.0.0 - Copyright 2023
+* @author theAuthor - https://link
+*/
+
+/* Bootstrap Overwrite/Extend */
+html, body {
+    height: 100%;
+}
+
+body {
+    color: #e8f4ff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+
+/* ----------------------- OPEN & CLOSE BUTTONS ----------------------- */
+/* Text below buttons */
+.button-text {
+    position: absolute;
+    width: 70px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px; /* Adjust font size as needed */
+    top: 60px; /* Adjust vertical position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#unlock-btn {
+    position: absolute;
+    text-align: center;
+    margin-top: 43%;
+    right: 45%;
+    border-radius: 50%;
+    height: 8%;
+    width: 8%;
+    background: linear-gradient(45deg, #2D3690, #942691);
+    z-index: 1; /* Assurez-vous que le bouton Unlock a un index z plus élevé que le spinner */
+}
+
+.button-text1 .fa1 {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px; /* Adjust font size as needed */
+    top: 60px; /* Adjust vertical position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Circular buttons */
+.open-circle-button,
+.close-circle-button {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #2D3690, #942691); /* Adjust gradient colors as needed */
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Position the buttons on each side of circle-1 */
+.open-circle-button {
+    right: 110%; /* Adjust the positioning as needed */
+    top: 40%;
+    transform: translateX(-75%); /* Adjust the positioning as needed */
+}
+
+.open-circle-button1 {
+    transform: translateX(-75%); /* Adjust the positioning as needed */
+}
+
+.open-circle-button1
+{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #2D3690, #942691); /* Adjust gradient colors as needed */
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.close-circle-button {
+    left: 123%; /* Adjust the positioning as needed */
+    top: 40%;
+    transform: translateX(25%); /* Adjust the positioning as needed */
+}
+
+/* Hover effect */
+.open-circle-button:hover,
+.close-circle-button:hover {
+    background: linear-gradient(45deg, #942691, #2D3690); /* Adjust hover gradient colors as needed */
+}
+
+/* Futuristic design */
+.open-circle-button::before,
+.open-circle-button::after,
+.close-circle-button::before,
+.close-circle-button::after {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff; /* Change the design color as needed */
+    border-radius: 50%;
+}
+
+.open-circle-button::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.open-circle-button::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.close-circle-button::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.close-circle-button::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+/* ----------------------- END OPEN & CLOSE BUTTONS ----------------------- */
+
+/* --------------------------------------- MENU ---------------------------------------  */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+    transform: translateX(-100%);
+
+}
+
+.menu.active {
+    transform: translateX(0);
+}
+
+body.menu-active div#content { left: 284px; border-radius: 7px 0 0 7px; }
+body.menu-active div#content .menu-trigger { left: 294px; } 
+body.menu-active nav#slide-menu { left: 0px; }
+body.menu-active nav#slide-menu ul { left: 0px; opacity: 1; }
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 50px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    /* text-align: center; */
+}
+
+.menu ul li a:hover {
+    color: #bc13fe;
+    box-shadow:10 10 2px;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+/* --------------------------------------- END MENU ---------------------------------------  */
+/* --------------------------------------- DATE ---------------------------------------  */
+#datetime-closed, #time-closed {
+    margin: 6% 24%;
+    width: 50%;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    color: #2D3690;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.3);
+}
+.text-crystal-closed {
+    color: rgba(255, 255, 255, 0.7);
+}
+/* --------------------------------------- END DATE ---------------------------------------  */
+
+/* ---------------------------------------LOGO SPINNER ---------------------------------------*/
+
+#spinner-container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#spinner {
+    width: 400px;
+    height: 400px;
+    background-image: url(../img/logo.png);
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.7); /* Remplacez 0.7 par la valeur d'opacité souhaitée (entre 0 et 1) */
+    border-radius: 50%;
+    animation: spin 200s linear infinite, flicker 3s infinite;
+    cursor: pointer;
+    box-shadow: 0 0 20px 10px rgb(255, 255, 255);
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+/* --------------------------------------- END LOGO SPINNER ---------------------------------------*/
+
+
+/* --------------------------------------- LOGIN ---------------------------------------*/
+
+/* .login{
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #2D3690;
+    width: 500px;
+    height: 500px;
+} */
+
+#containor{
+    margin-top:70px;
+    text-align: center;
+    border-radius: 50%;
+    /* background-color: #2D3690; */
+    width: 500px;
+    height: 500px;
+    background-color: rgba(56, 56, 56, 0.7); /* Remplacez 0.7 par la valeur d'opacité souhaitée (entre 0 et 1) */
+    cursor: pointer;
+    box-shadow: 0 0 20px 10px rgb(255, 255, 255);
+}
+
+#cont{
+    margin-top:40px;
+    text-align: center;
+    cursor: pointer;
+    /* width: 500px;
+    height: 500px; */
+}
+
+#field{
+    text-align: center;
+    cursor: pointer;
+    top: 5%;
+    right: 35%;
+}
+
+
+#x{
+    text-align: center;
+    cursor: pointer;
+    top: 5%;
+    right: 35%;
+}
+
+.field{
+    outline:none;
+    background-color:transparent;
+    font-family: 'Raleway', sans-serif;
+    font-weight:100;
+    letter-spacing: 10px;
+    border-radius:8px;
+    width:220px;
+    font-size:1.1em;
+    border:1px solid white;
+    height:45px;
+    color:white;
+    text-align:center;
+    margin-top:-15px;
+    position:absolute;
+    margin-top:15px;
+    margin-left:30px;
+    display:inline-block;
+}
+
+.number{
+    width:40px;
+    height:40px;
+    padding:10px;
+    font-size:1.3em;
+    font-weight:200;
+    color:white;
+    font-family: 'Raleway', sans-serif;
+    border-radius:100%;
+    border:1px solid white;
+    text-align:center;
+    line-height:43px;
+    display:inline-block;
+    margin:10px;
+    cursor:pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition:0.4s;
+}
+.number:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.number:active{
+box-shadow:none;
+}
+/* another class just like number, so the x and check buttons wont interrupt to the javascript */
+.numberS{
+    width:40px;
+    height:40px;
+    padding:10px;
+    font-size:1.3em;
+    font-weight:200;
+    color:white;
+    font-family: 'Raleway', sans-serif;
+    border-radius:100%;
+    border:1px solid white;
+    text-align:center;
+    line-height:43px;
+    display:inline-block;
+    margin:10px;
+    cursor:pointer;
+}
+#x{
+    display:inline-block;
+    margin-left:300px;
+    background-color: rgba(56, 56, 56, 0.7); /* Remplacez 0.7 par la valeur d'opacité souhaitée (entre 0 et 1) */
+    border:none;
+    color:#9E9E9E;
+    transition:0.4s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+#x:hover{
+    color:white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+#x:active{
+    box-shadow:none;
+}
+#y{
+    font-size:1.0em;
+    border:none;
+    transition:0.6s;
+    color:#9E9E9E;
+}
+#y:hover{
+    color:white;
+}
+/* --------------------------------------- END LOGIN ---------------------------------------*/
+
+/* GLOBAL */
+h1, h2, h3, .h1, .h2, .h3, .heading {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    color: #e8f4ff;
+}
+
+a {
+    color: #62d0f0;
+    font-weight: 600;
+    -webkit-transition: color .15s ease-out;
+    transition: color .15s ease-out;
+}
+
+a:hover,
+a:focus {
+    color: #62d0f0;
+    text-decoration: none;
+}
+
+a.link-sf {
+    position: relative;
+}
+
+a.link-sf:before {
+    position: absolute;
+    top: -5px;
+    right: -2px;
+    bottom: -5px;
+    left: -2px;
+    content: "";
+    background-color: rgba(255, 255, 255, .15);
+    visibility: hidden;
+    -webkit-transform: scaleY(2);
+    -ms-transform: scaleY(2);
+    transform: scaleY(2);
+    -webkit-transition: -webkit-transform .12s ease-out;
+    transition: transform .12s ease-out;
+}
+
+a.link-sf:hover,
+a.link-sf:focus {
+    color: #fff;
+}
+
+a.link-sf:hover:before,
+a.link-sf:focus:before {
+    visibility: visible;
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+a.link-sf:active:before {
+    -webkit-transform: scaleY(1.2);
+    -ms-transform: scaleY(1.2);
+    transform: scaleY(1.2);
+}
+
+.text-sf {
+    color: #62d0f0;
+}
+
+.text-crystal {
+    color: rgba(255, 255, 255, .25);
+}
+
+.text-white-op {
+    color: rgba(255, 255, 255, .75);
+}
+
+.text-success {
+    color: #2ecc71;
+}
+
+.text-danger {
+    color: #e74c3c;
+}
+
+.btn.btn-xl {
+    padding: 14px 12px;
+}
+
+.btn.btn-sf {
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(255, 255, 255, .75);
+    border: 2px solid rgba(255, 255, 255, .25);
+    border-left-width: 4px;
+    border-right-width: 4px;
+    background: transparent;
+}
+
+.btn.btn-sf:hover,
+.btn.btn-sf:focus {
+    color: rgba(255, 255, 255, 1);
+    border-color: rgba(255, 255, 255, 1);
+    outline: 0;
+}
+
+.btn.btn-sf:active {
+    color: #fff;
+    border-color: #fff;
+    background: rgba(255, 255, 255, .15);
+}
+
+.progress {
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, .25);
+    height: 10px;
+}
+
+.progress-bar-sf {
+    background-color: rgba(98, 208, 240, .1);
+}
+/* END GLOBAL */
+
+/* -------------------- Main Layout -------------------- */
+#page-container {
+    min-width: 320px;
+}
+
+#page-container:before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    z-index: -1;
+}
+
+#page-container.modern-sf:before {
+    background-color: rgba(0, 22, 41, .75);
+}
+
+#page-container.vintage-sf:before {
+    background-color: rgba(197, 107, 19, .35);
+}
+
+#page-container.vintage-sf .block {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+#page-container.interstellar-sf:before {
+    background-color: rgba(255, 0, 192, .35);
+}
+
+#page-container.interstellar-sf .block {
+    background-color: rgba(0, 0, 0, .3);
+}
+/* -------------------- END Main Layout -------------------- */
+
+/* -------------------- HEADER -------------------- */
+#page-header {
+    padding: 20px 20px 1px;
+    border-bottom: 10px solid rgba(255, 255, 255, .07);
+}
+
+.block-header {
+    padding: 5px 5px 5px;
+}
+
+.block-header:before,
+.block-header:after {
+    content: " ";
+    display: table;
+}
+
+.block-header:after {
+    clear: both;
+}
+
+.logo img {
+    position: relative;
+    top: -10px;
+    right: 45%;
+    left: 46%;
+}
+
+.rotate-img {
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 20s linear infinite;
+}
+/* -------------------- END HEADER -------------------- */
+
+#page-main {
+    padding: 50px 20px 1px;
+}
+
+/* Blocks */
+.block {
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, .15);
+    border-left: 4px solid rgba(255, 255, 255, .1);
+}
+
+.block-title {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    color: rgba(255, 255, 255, .25);
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.block-content {
+    margin: 0 auto;
+    padding: 20px 20px 1px;
+    max-width: 100%;
+    overflow-x: visible;
+}
+
+.block-content.block-content-full {
+    padding-bottom: 20px;
+}
+
+.block-content p,
+.block-content .push,
+.block-content .block {
+    margin-bottom: 15px;
+}
+
+.about {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* -------------------- Circles -------------------- */
+.circles {
+    position: relative;
+    left: 50%;
+    margin-left: -280px;
+    width: 560px;
+    height: 560px;
+}
+
+.circle {
+    position: absolute;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.circles-main-content {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-weight: 200;
+    font-size: 25px;
+    line-height: normal;
+    color: #fff;
+}
+
+/* CIRCLE 1 & 2 */
+.circle-1 {
+    width: 55%;
+    height: 55%;
+    top: 5%;
+    left: 22%;
+    border: 10px double rgba(255, 255, 255, .5);
+    /* -webkit-animation: spin 30s infinite linear;
+    animation: spin 30s infinite linear; */
+}
+.circle-2 {
+    width: 45%;
+    height: 45%;
+    top: 10%;
+    left: 27%;
+    border: 6px dotted rgba(255, 255, 255, .05);
+    -webkit-animation: spin 100s infinite linear;
+    animation: spin 100s infinite linear;
+}
+
+.circle-text-1-mesure {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-text-1-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* CIRCLE 3 & 4 */
+.circle-3 {
+    width: 30%;
+    height: 30%;
+    top: 50%;
+    left: 1%;
+    border: 20px groove rgba(98, 208, 240, .1);
+    /* -webkit-animation: spin-inverse 40s infinite linear;
+    animation: spin-inverse 40s infinite linear; */
+}
+
+.circle-4 {
+    width: 30%;
+    height: 30%;
+    top: 50%;
+    left: 1%;
+    border: 2px rgba(98, 208, 240, .2);
+    border-style: dashed solid dashed solid;
+    -webkit-animation: spin 30s infinite linear;
+    animation: spin 30s infinite linear;
+}
+
+.circle-text-2-mesure {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-text-2-value {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* CIRCLE 5 & 6 */
+.circle-5 {
+    width: 30%;
+    height: 30%;
+    top: 64%;
+    left: 35%;
+    border: 20px groove rgba(98, 208, 240, .1);
+    /* -webkit-animation: spin-inverse 40s infinite linear;
+    animation: spin-inverse 40s infinite linear; */
+}
+
+.circle-6 {
+    width: 30%;
+    height: 30%;
+    top: 64%;
+    left: 35%;
+    border: 2px rgba(98, 208, 240, .2);
+    border-style: dashed solid dashed solid;
+    -webkit-animation: spin 30s infinite linear;
+    animation: spin 30s infinite linear;
+}
+
+.circle-text-3-mesure {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-text-3-value {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* CIRCLE 7 & 8 */
+.circle-7 {
+    width: 30%;
+    height: 30%;
+    top: 50%;
+    left:68%;
+    border: 20px groove rgba(98, 208, 240, .1);
+    /* -webkit-animation: spin-inverse 40s infinite linear;
+    animation: spin-inverse 40s infinite linear; */
+}
+
+.circle-8 {
+    width: 30%;
+    height: 30%;
+    top: 50%;
+    left:68%;
+    border: 2px rgba(98, 208, 240, .2);
+    border-style: dashed solid dashed solid;
+    -webkit-animation: spin 30s infinite linear;
+    animation: spin 30s infinite linear;
+}
+
+.circle-text-4-mesure {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-text-4-value {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* CIRCLE OVER */
+.circle-over-1,
+.circle-over-2,
+.circle-over-3 {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    top: 0;
+    right: 0;
+    color: rgba(231, 76, 60, 1);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgba(231, 76, 60, .15);
+}
+
+.circle-over-2 {
+    border: 1px dashed rgba(231, 76, 60, .3);
+    background-color: transparent;
+    -webkit-animation: spin-inverse 15s infinite linear;
+    animation: spin-inverse 15s infinite linear;
+}
+
+.circle-over-3 {
+    border: 3px dashed rgba(231, 76, 60, .3);
+    background-color: transparent;
+    -webkit-animation: spin-inverse 15s infinite linear;
+    animation: spin-inverse 15s infinite linear;
+}
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin-inverse {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+@keyframes spin-inverse {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+/* -------------------- END Circles -------------------- */
+
+/* -------------------- Easy Pie Chart -------------------- */
+.pie-chart {
+    position: relative;
+    display: inline-block;
+}
+
+.pie-chart:before {
+    position: absolute;
+    top: -5px;
+    right: -2px;
+    bottom: -5px;
+    left: -2px;
+    content: "";
+    background-color: rgba(255, 255, 255, .15);
+    visibility: hidden;
+    -webkit-transform: scaleY(2);
+    -ms-transform: scaleY(2);
+    transform: scaleY(2);
+    -webkit-transition: -webkit-transform .12s ease-out;
+    transition: transform .12s ease-out;
+}
+
+.pie-chart > span {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-top: -2px;
+    right: 0;
+    left: 0;
+    text-align: center;
+}
+/* -------------------- END Easy Pie Chart -------------------- */
+
+/* Helpers */
+.font-s12 { font-size: 12px !important; }
+.font-s13 { font-size: 13px !important; }
+.font-s14 { font-size: 14px !important; }
+.font-s16 { font-size: 16px !important; }
+.font-s18 { font-size: 18px !important; }
+.font-s20 { font-size: 20px !important; }
+.font-s24 { font-size: 24px !important; }
+.font-s36 { font-size: 36px !important; }
+.font-s40 { font-size: 40px !important; }
+.font-s48 { font-size: 48px !important; }
+.font-s52 { font-size: 52px !important; }
+.font-s58 { font-size: 58px !important; }
+.font-s60 { font-size: 60px !important; }
+.font-s64 { font-size: 64px !important; }
+.font-s70 { font-size: 70px !important; }
+
+.font-w200 { font-weight: 200 !important; }
+.font-w300 { font-weight: 300 !important; }
+.font-w400 { font-weight: 400 !important; }
+.font-w600 { font-weight: 600 !important; }
+.font-w700 { font-weight: 700 !important; }
+
+.push-5 { margin-bottom: 5px; }
+.push-10 { margin-bottom: 10px; }
+.push-20 { margin-bottom: 20px; }
+.push-30 { margin-bottom: 30px; }
+.push-40 { margin-bottom: 40px; }
+.push-50 { margin-bottom: 50px; }
+
+.items-push > div { margin-bottom: 30px; }
+
+.overflow-hidden { overflow: hidden; }
+.visibility-hidden { visibility: hidden; }
+
+/* END Helpers */

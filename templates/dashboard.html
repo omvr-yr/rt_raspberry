@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>Dashboard</title>
+
+        <meta name="description" content="DESCRIPTION HERE">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+        <!-- Favicons (just the basics for now, check out http://realfavicongenerator.net/ for all available) -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png') }}" >
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}" sizes="32x32">
+        <!-- Web fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <!-- Page Container -->
+        <!--
+            Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf'
+        -->
+        <div id="page-container" class="interstellar-sf">
+            <!-- Header -->
+            <header id="page-header">
+                <div class="menu">
+                    <ul>
+                        <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="{{ url_for('parameters') }}"><i class="fas fa-sliders-h"></i> Parameters</a></li>
+                        <li><a href="{{ url_for('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li><a href="{{ url_for('help') }}"><i class="fas fa-question-circle"></i> Help</a></li>
+                        <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About</a></li>
+                    </ul>
+                </div>
+                <div class="menu-toggle">☰</div>
+                <div class="h3 text-right pull-right hidden-xs">
+                    <div id="datetime" class="text-crystal font-w300"></div>
+                    <div id="time" class="text-crystal font-w300"></div>
+                    <div id="temperature" class="text-crystal font-w300"></div>
+                </div>
+                <div class="logo">
+                    <span class="text-crystal"><img class="rotate-img" src="{{ url_for('static', filename='img/logo.png') }}" width="100" height="100"></span>
+                </div>
+            </header>
+            <!-- END Header -->
+            <!-- Main Content -->
+            <main id="page-main">
+                <!-- Columns -->
+                <div class="row gx-5">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <!-- Environment -->
+                        <div class="block">
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">BLOCK NAME</h2>
+                            </div>
+                            <div class="block-content">
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="100">
+                                        <div class="js-pie-chart pie-chart" data-percent="50" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
+                                            <span class="font-s16 font-w600">PSI</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="400">
+                                        <div class="text-uppercase font-w600 text-white-op">Pressure</div>
+                                        <div class="font-s36 font-w300">30</div>
+                                    </div>
+                                </div>
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="200">
+                                        <div class="js-pie-chart pie-chart" data-percent="29" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
+                                            <span class="font-s16 font-w600">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="500">
+                                        <div class="text-uppercase font-w600 text-white-op">Oxygen</div>
+                                        <div class="font-s36 font-w300">17.15</div>
+                                    </div>
+                                </div>
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="300">
+                                        <div class="js-pie-chart pie-chart" data-percent="60" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
+                                            <span class="font-s16 font-w600">F&deg;</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="600">
+                                        <div class="text-uppercase font-w600 text-white-op">Temperature</div>
+                                        <div class="font-s36 font-w300">68</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Environment -->
+
+                        <!-- Planets -->
+                        <div class="block">
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">BLOCK NAME</h2>
+                            </div>
+                            <div class="block-content">
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="100">
+                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="20" data-size="45" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#c07635">
+                                            <span class="font-s16 font-w600"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="400">
+                                        <div class="text-uppercase font-w600 text-white-op">NAME 1</div>
+                                        <div class="font-s36 font-w300">1.67 <span class="font-s16 font-w400 text-crystal">UNIT OF MESURE</span></div>
+                                    </div>
+                                </div>
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="200">
+                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="22" data-size="50" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#3673cc">
+                                            <span class="font-s16 font-w600"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="500">
+                                        <div class="text-uppercase font-w600 text-white-op">NAME 2</div>
+                                        <div class="font-s36 font-w300">1.62 <span class="font-s16 font-w400 text-crystal">UNIT OF MESURE</span></div>
+                                    </div>
+                                </div>
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="300">
+                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="30" data-size="70" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#f7c880">
+                                            <span class="font-s16 font-w600"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="600">
+                                        <div class="text-uppercase font-w600 text-white-op">NAME 3</div>
+                                        <div class="font-s36 font-w300">2.22 <span class="font-s16 font-w400 text-crystal">UNIT OF MESURE</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Planets -->
+                    </div>
+                    <!-- END Left Column -->
+
+                    <!-- Right Column -->
+                    <div class="col-md6 col-lg-6">
+                        <!-- HQ_COMS -->
+                        <div class="block">
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">BLOCK NAME</h2>
+                            </div>
+                            <div class="block-content overflow-hidden">
+                                <div class="row items-push">
+                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="300">
+                                        <div class="font-s24 font-w300 text-white-op">DATA 1 [<span class="text-success">40</span>]</div>
+                                    </div>
+                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="500">
+                                        <div class="font-s24 font-w300 text-white-op">DATA 2 [<span class="text-success">60</span>]</div>
+                                    </div>
+                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="700">
+                                        <div class="font-s24 font-w300 text-white-op">DATA 3 [<span class="text-success">80</span>]</div>
+                                    </div>
+                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="900">
+                                        <div class="font-s24 font-w300 text-white-op">DATA 4 [<span class="text-success">90</span>]</div>
+                                    </div>
+                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1100">
+                                        <div class="font-s24 font-w300 text-white-op">DATA 5 [<span class="text-success">20</span>]</div>
+                                    </div>
+                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1300">
+                                        <div class="font-s24 font-w300 text-white-op">DATA 6 [<span class="text-success">30</span>]</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END DATAS -->
+
+                        <!-- DATAS2 -->
+                        <div class="block">
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">BLOCK NAME</h2>
+                            </div>
+                            <div class="block-content block-content-full overflow-hidden">
+                                <div class="font-w600 text-white-op push-5 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="100">DATA NAME: 95</div>
+                                <div class="progress visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="100">
+                                    <div class="progress-bar progress-bar-sf progress-bar-striped active" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
+                                </div>
+                                <div class="font-w600 text-white-op push-5 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="300">DATA NAME: 49</div>
+                                <div class="progress visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="300">
+                                    <div class="progress-bar progress-bar-sf progress-bar-striped active" role="progressbar" aria-valuenow="49" aria-valuemin="0" aria-valuemax="100" style="width: 49%"></div>
+                                </div>
+                                <div class="font-w600 text-white-op push-5 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="500">DATA NAME: 59</div>
+                                <div class="progress visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="500">
+                                    <div class="progress-bar progress-bar-sf progress-bar-striped active" role="progressbar" aria-valuenow="59" aria-valuemin="0" aria-valuemax="100" style="width: 59%"></div>
+                                </div>
+                                <div class="font-w600 text-white-op push-5 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="700">DATA NAME: 60</div>
+                                <div class="progress visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="700">
+                                    <div class="progress-bar progress-bar-sf progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END POS_TRACKING -->
+
+                        <!-- DATAS 3 -->
+                        <div class="block">
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">BLOCK NAME</h2>
+                            </div>
+                            <div class="block-content">
+                                <div class="row items-push">
+                                    <div class="col-xs-4 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="100">
+                                        <div class="font-s12 text-white-op">DATA NAME</div>
+                                        <div class="font-s18 text-success" data-toggle="countTo" data-to="148" data-speed="4000"></div>
+                                    </div>
+                                    <div class="col-xs-4 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="300">
+                                        <div class="font-s12 text-white-op">DATA NAME</div>
+                                        <div class="font-s18 text-success" data-toggle="countTo" data-to="30" data-speed="4000"></div>
+                                    </div>
+                                    <div class="col-xs-4 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="500">
+                                        <div class="font-s12 text-white-op">DATA NAME</div>
+                                        <div class="font-s18 text-success" data-toggle="countTo" data-to="123" data-speed="4000"></div>
+                                    </div>
+                                    <div class="col-xs-4 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="700">
+                                        <div class="font-s12 text-white-op">DATA NAME</div>
+                                        <div class="font-s18 text-success" data-toggle="countTo" data-to="180" data-speed="4000"></div>
+                                    </div>
+                                    <div class="col-xs-4 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="900">
+                                        <div class="font-s12 text-white-op">DATA NAME</div>
+                                        <div class="font-s18 text-success" data-toggle="countTo" data-to="680" data-speed="4000"></div>
+                                    </div>
+                                    <div class="col-xs-4 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1100">
+                                        <div class="font-s12 text-white-op">DATA NAME</div>
+                                        <div class="font-s18 text-success" data-toggle="countTo" data-to="15" data-speed="4000"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END DATA_STREAM -->
+                    </div>
+                    <!-- END Right Column -->
+                </div>
+                <!-- END Columns -->
+                </div>
+                <!-- END Columns -->
+            </main>
+            <!-- END Main Content -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/core/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.appear.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.countTo.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.easypiechart.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/circle-progress.min.js') }}" type="module"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="https://kit.fontawesome.com/e1103b874c.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Page JS Code -->
+        <script>
+            jQuery(function(){
+                // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+                Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+            });
+            function updateDateTime() {
+                const currentDate = new Date();
+                const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const optionsTime = { hour: '2-digit', minute: '2-digit', hour12: false };
+
+                const formattedDate = currentDate.toLocaleDateString('fr-FR', optionsDate);
+                const formattedTime = currentDate.toLocaleTimeString('fr-FR', optionsTime);
+
+                document.getElementById('datetime').textContent = formattedDate;
+                document.getElementById('time').textContent = formattedTime;
+                // document.getElementById('temperature').textContent = "21 °F";
+            }
+            // Menu toggle
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.menu').classList.toggle('active');
+            });
+            $(document).ready(function() {
+                var menuToggle = $('.menu-toggle');
+                var menu = $('.menu');
+        
+                $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) { // 50 est la distance de défilement à partir du haut où vous voulez que l'effet se produise
+                    menuToggle.addClass('hidden');
+                    menu.addClass('hidden');
+                } else {
+                    menuToggle.removeClass('hidden');
+                    menu.removeClass('hidden');
+                }
+                });
+            });
+            // Update date and time every second
+            setInterval(updateDateTime, 1000);
+
+            // Initial call to avoid a one-second delay before the first update
+            updateDateTime();
+
+            // Update date and time every second
+            setInterval(updateDateTime, 1000);
+
+            // Initial call to avoid a one-second delay before the first update
+            updateDateTime();
+
+            // Update date and time every second
+            setInterval(updateDateTime, 1000);
+
+            // Initial call to avoid a one-second delay before the first update
+            updateDateTime();
+        </script>
+    </body>
+</html>

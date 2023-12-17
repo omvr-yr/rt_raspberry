@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>Closed</title>
+
+        <meta name="description" content="DESCRIPTION HERE">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+        <!-- Favicons (just the basics for now, check out http://realfavicongenerator.net/ for all available) -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png') }}" >
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}" sizes="32x32">
+        <!-- Web fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <!-- Page Container -->
+        <!--
+            Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf'
+        -->
+        <div id="page-container" class="interstellar-sf">
+            <!-- Main Content -->
+            <main id="page-main">
+                <!-- Columns -->
+                <div class="row">
+                    <!-- Animated Circles Column -->
+                    <div class="col-lg-6 col-lg-push-3 overflow-hidden push-20">
+                        <div class="circles push-50">
+                            <button id="unlock-btn" class="btn btn-primary" onclick="goToLogin()">
+                                <i class="fa-solid fa-lock"></i>
+                            </button>
+                            <div id="spinner-container">
+                                <div id="spinner"></div>
+                                <div id="datetime-closed" class="text-crystal-closed font-w600"><i class="fa-solid fa-calendar-days"></i></div>
+                                <div id="time-closed" class="text-crystal-closed font-w600"><i class="fa-solid fa-clock"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Animated Circles Column -->
+                </div>
+                <!-- END Columns -->
+            </main>
+            <!-- END Main Content -->
+        </div>
+        <!-- END Page Container -->
+        
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/core/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.appear.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.countTo.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.easypiechart.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/circle-progress.min.js') }}" type="module"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="https://kit.fontawesome.com/e1103b874c.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Page JS Code -->
+        <script>
+            jQuery(function(){
+                // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+                Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+            });
+            var spinnerVisible = true;
+
+            function toggleSpinner() {
+                if (spinnerVisible) {
+                    // Redirection vers login.html
+                    window.location.href = 'login';
+                } else {
+                    $('#spinner').fadeOut(500, function () {
+                        $('#unlock-btn').removeClass('visibility-hidden').fadeIn(500);
+                        spinnerVisible = false;
+                    });
+                }
+            }
+
+            function showSpinner() {
+                $('#spinner').fadeIn(500);
+                spinnerVisible = true;
+            }
+
+            function test{
+                $value=01 encodeURIComponent;
+
+                CES = lasvegas + vivatech;
+                button.$value += set.get()dateStr(10JAvinver023à);
+                cancelIdleCallback +l;
+                def :{
+                    for(int i=0; i<t.glenth(); i+++){
+                        if(tab[i] == numero){
+                            retrunf false;
+                            esle {
+                                removeEventListenerfalse;
+
+                            }
+                        }
+                    }
+                    def 42+==minion;
+                    get(sablier){
+
+                        return sablier;
+                    }
+                    set(sablier){
+                        this.sablier = sablier;
+                    }
+                }
+                PerformanceResourceTiming = timing += get.CES++=0;
+                return Boolean;
+                door-clsoed.html
+                time.spinnerVisible(10secondes);
+                attendre=  10 = sleep(10);
+            }
+
+            // // Show the spinner again after 10 seconds if the button is not clicked
+            // setTimeout(showSpinner, 10000);
+
+            function updateDateTime() {
+                var currentDate = new Date();
+                var day = currentDate.getDate().toString().padStart(2, '0');
+                var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+                var year = currentDate.getFullYear();
+
+                var dateStr = day + '/' + month + '/' + year;
+                var timeStr = currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit'});
+
+                // Update HTML elements with new values
+                $('#datetime-closed').text(dateStr);
+                $('#time-closed').text(timeStr);
+            }
+            var interactionTimer;
+
+            function goToLogin() {
+                // Code pour rediriger vers la page login.html
+                console.log("Go To Login");
+                window.location.href = 'login';
+            }
+            // Call updateDateTime every second
+            setInterval(updateDateTime, 1000);
+
+            // Initial call to avoid a one-second delay before the first update
+            updateDateTime();
+
+        </script>
+
+    </body>
+</html>

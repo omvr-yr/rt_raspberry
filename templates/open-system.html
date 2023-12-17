@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>Open System</title>
+
+        <meta name="description" content="DESCRIPTION HERE">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+        <!-- Favicons (just the basics for now, check out http://realfavicongenerator.net/ for all available) -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.png') }}" >
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}" sizes="32x32">
+        <!-- Web fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <!-- Page Container -->
+        <!-- Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf' -->
+        <div id="page-container" class="interstellar-sf">
+            <!-- Main Content -->
+            <main id="page-main">
+                <!-- Columns -->
+                <div class="row">
+                    <!-- Animated Circles Column -->
+                    <div class="col-lg-6 col-lg-push-3 overflow-hidden push-20">
+                        <div class="circles push-50">
+                            <div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="100">
+                                    <span class="circle-text-1-mesure font-s24">  
+                                        <!-- Open Button -->                     
+                                        <button class="open-circle-button1" onclick="onDoorButtonClick('open')">
+                                            <div class="button-text-1">OPEN</div>
+                                            <i class="fas fa-door-open fa-2xl"></i>
+                                        </button>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Animated Circles Column -->
+                </div>
+                <!-- END Columns -->
+            </main>
+            <!-- END Main Content -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/core/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.appear.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.countTo.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/jquery.easypiechart.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugins/circle-progress.min.js') }}" type="module"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="https://kit.fontawesome.com/e1103b874c.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Page JS Code -->
+        <script>
+            jQuery(function(){
+                // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+                Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+            });
+
+            // OPENING SYSTEM
+            function onDoorButtonClick(action) {
+                if (action === 'open') {
+                    // Hide content
+                    $('.open-circle-button1').hide();
+
+                    // Display the "Opening doors" popup during toDefine -> timer: seconds
+                    Swal.fire({
+                        title: 'Opening doors ...',
+                        showConfirmButton: false,
+                        color: "#fff",
+                        timer: 24000,
+                        background : "linear-gradient(45deg, #2D3690, #942691)",
+                        timerProgressBar: true
+                    })
+                    // Execute Flask API request to the "open" function with AJAX request
+                    $.ajax({
+                        url: '/open',
+                        type: 'POST',
+                        success: function(response) {
+                            console.log(response);
+                            // Redirect to home.html after closed popup
+                            window.location.href = 'home';
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            }
+
+        </script>
+    </body>
+</html>
